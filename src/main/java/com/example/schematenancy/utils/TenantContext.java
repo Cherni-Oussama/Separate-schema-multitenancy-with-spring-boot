@@ -1,7 +1,7 @@
 package com.example.schematenancy.utils;
 
 import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -11,9 +11,8 @@ import lombok.extern.slf4j.Slf4j;
  * so that different threads do not overwrite each other's values.
  */
 @Slf4j
-@NoArgsConstructor(access= AccessLevel.PRIVATE)
+@RequiredArgsConstructor(access= AccessLevel.PRIVATE)
 public final class TenantContext {
-
 
     private static final ThreadLocal<String> currentTenant = new ThreadLocal<>();
 
