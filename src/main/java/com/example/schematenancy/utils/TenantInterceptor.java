@@ -1,17 +1,24 @@
 package com.example.schematenancy.utils;
 
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
-@RequiredArgsConstructor
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 @Component
 public class TenantInterceptor implements HandlerInterceptor {
 
     private final String defaultTenant;
+
+    @Autowired
+    public TenantInterceptor(
+            @Value("${multitenancy.tenant.default-tenant:#{null}}") String defaultTenant) {
+        this.defaultTenant = defaultTenant;
+    }
 
     /**
      * This method will be called before the request is passed to the handler method (i.e., the controller method).
