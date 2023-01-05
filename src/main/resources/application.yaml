@@ -18,3 +18,18 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: update
+
+multitenancy:
+  schema-cache:
+    maximumSize: 100
+    expireAfterAccess: 10
+  master:
+    repository:
+      packages: com.example.schematenancy.multitenancy.repositories
+    entityManager:
+      packages: com.example.schematenancy.multitenancy.models
+  tenant:
+    repository:
+      packages: com.example.schematenancy.repository
+    entityManager:
+      packages: com.example.schematenancy.model
