@@ -65,7 +65,6 @@ public class TenantPersistenceConfig {
         properties.put(AvailableSettings.MULTI_TENANT, MultiTenancyStrategy.SCHEMA);
         properties.put(AvailableSettings.MULTI_TENANT_CONNECTION_PROVIDER, connectionProvider);
         properties.put(AvailableSettings.MULTI_TENANT_IDENTIFIER_RESOLVER, tenantResolver);
-        properties.put("hibernate.hbm2ddl.auto","update");
         emfBean.setJpaPropertyMap(properties);
 
         return emfBean;
