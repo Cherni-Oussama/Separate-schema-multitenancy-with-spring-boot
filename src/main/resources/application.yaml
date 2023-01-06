@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    driver-class-name: ${ALGOBRAIN_ANALYTICS_DB_DRIVER:org.postgresql.Driver}
+    driver-class-name: ${DB_DRIVER:org.postgresql.Driver}
     host: ${DB_HOST:localhost}
     port: ${DB_PORT:5432}
     name: ${POSTGRES_DB:postgres}
